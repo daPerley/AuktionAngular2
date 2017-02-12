@@ -1,0 +1,47 @@
+<div>
+    <div>
+        <h2>{{title}}</h2>
+    </div>
+    <div>
+        <div class="row">
+            <div class="col-md-6">
+                <label>
+                    Kategori: 
+                    <select class="form-control" [(ngModel)]='categoryFilter'>
+                        <option [ngValue]='null'>Visa alla</option>
+                        <option *ngFor='let category of categories' [ngValue]='category'>
+                            {{category.name}}
+                        </option>
+                    </select>
+                </label>
+                <label>
+                    Sök: 
+                    <input class="form-control" type="text" [(ngModel)]='listFilter' />
+                </label>
+            </div>
+        </div>
+        <br>
+        <div class="table-responsive">
+            <table class="table" *ngIf='auctions && auctions.length'>
+                <thead>
+                    <tr>
+                        <th>Bild</th>
+                        <th>Titel</th>
+                        <th *ngIf='categories'>Kategori</th>
+                        <th>Slutdatum</th>
+                        <th>Köp nu pris</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="activeAuction" *ngFor='let auction of auctions | auctionFilter:categoryFilter:listFilter' (click)="onSelect(auction)">
+                        <td><img [src]='auction.imageUrl' [alt]='auction.name' [title]='auction.name' width="100px"></td>
+                        <td>{{auction.name}}</td>
+                        <td *ngIf='categories'><span *ngFor='let category of categories | categoryFilter:auction.categoryId'>{{category.name}}</span></td>
+                        <td>{{auction.endTime | date: 'dd/MM-yy HH:mm:ss' }}</td>
+                        <td>{{auction.buyNowPrice | currency:'SEK':true:'1.0-0' }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

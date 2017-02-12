@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Antiktorget",
+    "address": "Torget 1",
+    "postalCode": "111 22",
+    "city": "Storstan",
+    "phone": "67676767",
+    "email": "info@antiktorget.se",
+    "commission": 0.2
+  },
+  {
+    "id": 2,
+    "name": "Oceanens Antikervariat",
+    "address": "Centrumgatan 12",
+    "postalCode": "333 22",
+    "city": "Landsbyggden",
+    "phone": "4323423",
+    "email": "info@oceanen.se",
+    "commission": 0.1
+  }
+]

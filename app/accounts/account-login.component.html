@@ -1,0 +1,29 @@
+<div>
+    <div>
+        <h2>{{title}}</h2>
+    </div>
+    <div>
+        <form (ngSubmit)='onSubmit(form)' #accountLogin='ngForm'>
+            <div class="form-group">
+                <label>Email:</label>
+                <input type="email" id="email" required class="form-control" [(ngModel)]='model.email' name="email" #email="ngModel">
+                <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+                    Du måste ange en email!
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Lösenord:</label>
+                <input type="password" id="password" required class="form-control" [(ngModel)]='model.password' name="password" #password="ngModel">
+                <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
+                    Du måste ange ett lösenord!
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success" [disabled]="!accountLogin.form.valid">Logga in</button>
+        </form>
+        <div class="text-center">
+            <h4><a [routerLink]="['/login/create']">Inget konto än? Ingen fara, skapa ett här!</a></h4>
+        </div>
+    </div>
+</div>
+
+{{message}}

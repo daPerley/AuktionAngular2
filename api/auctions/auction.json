@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "name": "Antik stol",
+        "description": "En fin antik stol från 1800-talet",
+        "startTime": "2016-12-13T10:00:00",
+        "endTime": "2017-02-23T10:00:00",
+        "imageUrl": "https://thumbs.dreamstime.com/z/antik-stol-som-stoppas-i-sammet-32935346.jpg",
+        "categoryId": 1,
+        "supplierId": 2,
+        "buyNowPrice": 8000,
+        "sold": false
+    },
+    {
+        "id": 2,
+        "name": "Antikt bord",
+        "description": "En fint antikt bord",
+        "startTime": "2016-12-10T10:00:00",
+        "endTime": "2017-03-29T10:00:00",
+        "imageUrl": "http://precisensan.com/antikforum/attachment.php?attachmentid=78277&stc=1&d=1292057973",
+        "categoryId": 1,
+        "supplierId": 1,
+        "buyNowPrice": 18000,
+        "sold": true
+    },
+    {
+        "id": 3,
+        "name": "Gammal fin bil",
+        "description": "En fin bil",
+        "startTime": "2016-11-09T10:00:00",
+        "endTime": "2017-02-20T10:00:00",
+        "imageUrl": "https://thumbs.dreamstime.com/z/antik-bil-46969150.jpg",
+        "categoryId": 2,
+        "supplierId": 2,
+        "buyNowPrice": 120000,
+        "sold": false
+    },
+    {
+        "id": 4,
+        "name": "Vit kostym",
+        "description": "En vit kostym från kungen",
+        "startTime": "2016-12-13T10:00:00",
+        "endTime": "2017-02-4T10:00:00",
+        "imageUrl": "http://kostym-set.com/produktbild/bbbb59b72043931e477be83f3fe65166.jpg",
+        "categoryId": 3,
+        "supplierId": 1,
+        "buyNowPrice": 5000,
+        "sold": false
+    },
+    {
+        "id": 5,
+        "name": "Special smycke",
+        "description": "En smycke från antiken",
+        "startTime": "2016-11-10T10:00:00",
+        "endTime": "2017-12-22T10:00:00",
+        "imageUrl": "http://www.nordiskamuseet.se/sites/default/files/public/pressbilder/smycken/0990047_2.jpg",
+        "categoryId": 5,
+        "supplierId": 1,
+        "buyNowPrice": 35000,
+        "sold": false
+    },
+    {
+        "id": 6,
+        "name": "Antik vas i fint skick",
+        "description": "Dyr men fin antik vas",
+        "startTime": "2017-12-12T00:00:00",
+        "endTime": "2018-01-12T00:00:00",
+        "imageUrl": "http://web.comhem.se/~u70416639/grafik/vas_franklin_mint_nektergal.jpg",
+        "categoryId": 1,
+        "supplierId": 2,
+        "buyNowPrice": 80000,
+        "sold": false
+    }
+]

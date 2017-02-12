@@ -1,0 +1,15 @@
+.bid {
+    display: block;
+}
+
+.first {
+    background-color: green;
+}
+
+.first:after {
+    content: ' - Högsta bud'
+}
+
+.row {
+    margin-bottom: 3px !important;
+}

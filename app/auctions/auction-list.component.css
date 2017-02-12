@@ -1,0 +1,9 @@
+thead {
+    color: #444;
+    background-color: #eee;
+}
+
+.activeAuction {
+    cursor:pointer;
+    cursor:hand;
+}

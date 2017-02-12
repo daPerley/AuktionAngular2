@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "name": "Möbler"
+    },
+    {
+        "id": 2,
+        "name": "Bilar"
+    },
+    {
+        "id": 3,
+        "name": "Kläder"
+    },
+    {
+        "id": 4,
+        "name": "Hushåll"
+    },
+    {
+        "id": 5,
+        "name": "Smycken"
+    }
+]

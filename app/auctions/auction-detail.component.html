@@ -1,0 +1,86 @@
+<div class="container-fluid" *ngIf='auction'>
+    <div class="row text-center">
+        <br>
+        <div class="alert alert-success" *ngIf='message'>
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            {{message}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+        <h2>{{title + ': ' + auction.name}}</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-5">
+            <img [src]='auction.imageUrl' [alt]='auction.name' [title]='auction.name' width="100%">
+        </div>
+        <div class="col-sm-7">
+            <div class="row">
+                <div class="col-sm-3">Auktionsnamn:</div>
+                <div class="col-sm-9">{{auction.name}}</div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3" *ngIf='categories'>Kategori:</div>
+                <div class="col-sm-9" *ngIf='categories'><span *ngFor='let category of categories | categoryFilter:auction.categoryId'>{{category.name}}</span></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">Beskrivning:</div>
+                <div class="col-sm-9">{{auction.description}}</div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">Start:</div>
+                <div class="col-sm-9">{{auction.startTime | date: 'dd/MM-yy HH:mm:ss' }}</div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">Slut:</div>
+                <div class="col-sm-9">{{auction.endTime | date: 'dd/MM-yy HH:mm:ss' }}</div>
+            </div>
+            <div class="row" *ngIf='supplier'>
+                <div class="col-sm-3">Leverantör:</div>
+                <div class="col-sm-9">
+                    <button class="dropdown-toggle" type="button" data-toggle="dropdown">
+                        {{supplier.name}} <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a>Address: {{supplier.address}}</a></li>
+                        <li><a>Postnummer: {{supplier.postalCode}}</a></li>
+                        <li><a>Postort: {{supplier.city}}</a></li>
+                        <li><a>Telefonnummer: {{supplier.phone}}</a></li>
+                        <li><a>Epost: {{supplier.email}}</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row" *ngIf="bids">
+                <div class="col-sm-3">Budhistorik:</div>
+                <div class="col-sm-9">
+                    <span class="bid" *ngFor='let bid of bids; let first = first' [ngClass]="{ first: first}">{{bid.bidPrice | currency:'SEK':true:'1.0-0'}}</span>
+                </div>
+            </div>
+            <div class="row">
+                    <div class="col-sm-3">Lägg bud:</div>
+                    <div class="col-sm-9">
+                        <form (ngSubmit)='onPlaceBid(form, auction)' #placeBid='ngForm'>
+                            <div class="form-group">
+                                <input type="number" [min]='highestBid' id="bidPrice" required class="form-control" [(ngModel)]='model.bidPrice' name="bidPrice" #bidPrice="ngModel">
+                                <div [hidden]="bidPrice.valid || bidPrice.pristine" class="alert alert-danger">
+                                    Du måste ange en budsumma som är högra än nuvarande högsta bud!
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-success" [disabled]="!placeBid.form.valid">Lägg bud</button>
+                        </form>
+                    </div>
+            </div>
+            <div class="row text-center">
+                <br>
+                <button type="button" class="btn btn-success" (click)='onBuyNow(auction)'>Köp nu ({{auction.buyNowPrice | currency:'SEK':true:'1.0-0'}})</button>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div>
+        <a class="btn btn-default" (click)='onBack()' item-width="80px">
+            <i class="glyphicon glyphicon-chevron-left"></i> Back
+        </a>
+    </div>
+</div>
