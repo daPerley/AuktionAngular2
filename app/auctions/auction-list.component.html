@@ -6,10 +6,10 @@
         <div class="row">
             <div class="col-md-6">
                 <label>
-                    Kategori: 
+                    Kategori:
                     <select class="form-control" [(ngModel)]='categoryFilter'>
                         <option [ngValue]='null'>Visa alla</option>
-                        <option *ngFor='let category of categories' [ngValue]='category'>
+                        <option *ngFor='let category of categories' [ngValue]='category.id'>
                             {{category.name}}
                         </option>
                     </select>

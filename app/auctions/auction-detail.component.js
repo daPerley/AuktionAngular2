@@ -39,9 +39,7 @@ var AuctionDetailComponent = (function () {
             this.auction = yield this._auctionService.getAuction(id);
             this.categories = yield this._auctionService.getCategories();
             this.supplier = yield this._auctionService.getSupplier(supplierId);
-            this.bids = yield this._auctionService.getBidsForAuction(id);
-            this.bids.reverse();
-            this.highestBid = this.bids[0].bidPrice;
+            this.getBids(this.auction.id);
         });
     };
     AuctionDetailComponent.prototype.onBack = function () {
@@ -76,6 +74,7 @@ var AuctionDetailComponent = (function () {
                     _this.message = 'Något gick visst fel!';
                 }
                 else {
+                    _this.getBids(auction.id);
                     _this.message = 'Ditt bud är lagt!';
                     console.log(result);
                 }
@@ -84,6 +83,13 @@ var AuctionDetailComponent = (function () {
         else {
             this._router.navigate(['/login']);
         }
+    };
+    AuctionDetailComponent.prototype.getBids = function (id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            this.bids = yield this._auctionService.getBidsForAuction(id);
+            this.bids.reverse();
+            this.highestBid = (yield this.bids[0].bidPrice) + 1;
+        });
     };
     AuctionDetailComponent.prototype.errorMessage = function (error) {
         return;

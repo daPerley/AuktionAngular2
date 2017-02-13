@@ -45,11 +45,7 @@ export class AuctionDetailComponent implements OnInit{
 
         this.supplier  = await this._auctionService.getSupplier(supplierId);
 
-        this.bids = await this._auctionService.getBidsForAuction(id);
-
-        this.bids.reverse();
-
-        this.highestBid = this.bids[0].bidPrice;
+        this.getBids(this.auction.id);
     }
 
     onBack(): void {
@@ -87,6 +83,7 @@ export class AuctionDetailComponent implements OnInit{
                         this.message = 'Något gick visst fel!';
                     }
                     else {
+                        this.getBids(auction.id);
                         this.message = 'Ditt bud är lagt!';
                         console.log(result);
                     }
@@ -94,6 +91,14 @@ export class AuctionDetailComponent implements OnInit{
             } else {
                 this._router.navigate(['/login']);
             }
+    }
+
+    async getBids(id: number) {
+        this.bids = await this._auctionService.getBidsForAuction(id);
+
+        this.bids.reverse();
+
+        this.highestBid = await this.bids[0].bidPrice + 1;
     }
 
     private errorMessage(error: any) {
